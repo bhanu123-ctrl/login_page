@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BHANU — ACCESS TERMINAL</title>
+  <meta name="description" content="BHANU — Premium neural-access terminal with cinematic cyberpunk design."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div id="cursor-arrow" aria-hidden="true">
+    <svg viewBox="0 0 64 64" focusable="false" aria-hidden="true">
+      <path d="M14 10 L14 54 L30 40 L54 28 Z"></path>
+    </svg>
+  </div>
+
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <div id="scroll-progress" role="progressbar" aria-label="Scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div id="scroll-fill"></div>
+  </div>
+
+  <nav id="topnav" aria-label="Site navigation">
+    <div class="nav-logo" aria-label="BHANU system">
+      <span class="nav-dot" aria-hidden="true"></span>
+      Bhanu
+    </div>
+    <div class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="#contact">Contact</a>
+    </div>
+    <div class="nav-time" id="nav-clock" aria-label="Current time"></div>
+  </nav>
+
+  <main id="hero-section">
+
+    <div class="bg-layers" aria-hidden="true">
+      <div class="bg-radial"></div>
+      <div class="grid-floor"></div>
+      <div class="horizon-line"></div>
+      <div class="vignette"></div>
+    </div>
+
+    <div id="hero-content">
+
+      <div class="eyebrow" aria-label="Neural Access Portal v3">
+        <span class="eyebrow-bracket">[</span>
+        <span class="eyebrow-text">Access Portal </span>
+        <span class="eyebrow-bracket">]</span>
+      </div>
+
+      <h1 id="bhanu-title" aria-label="BHANU">
+        <span class="char" style="--i:0">B</span>
+        <span class="char" style="--i:1">H</span>
+        <span class="char" style="--i:2">A</span>
+        <span class="char" style="--i:3">N</span>
+        <span class="char" style="--i:4">U</span>
+      </h1>
+
+      <p class="tagline" aria-label="Identity Matrix — Clearance Omega">
+        Identity matrix &nbsp;<span class="tagline-sep" aria-hidden="true">◆</span>&nbsp; Clearance Omega
+      </p>
+
+      <div id="loading-section" role="status" aria-live="polite">
+        <div class="load-row">
+          <span class="load-label">SERVER LINK</span>
+          <span id="load-pct" class="load-pct">0%</span>
+        </div>
+        <div id="loading-bar-wrap">
+          <div id="loading-bar">
+            <div class="bar-shimmer"></div>
+          </div>
+          <div class="bar-segments" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="load-meta" aria-hidden="true">
+          <span>ENCRYPTION: AES-512</span>
+          <span id="load-node">NODE: —</span>
+        </div>
+      </div>
+
+      <section id="login-card" aria-label="Identity Verification">
+        <div class="card-holo" aria-hidden="true"></div>
+
+        <header class="card-header">
+          <div class="header-line">
+            <span class="header-code">Portfolio</span>
+            <span>Access</span>
+            <span class="header-code">v3</span>
+          </div>
+        </header>
+
+        <form id="login-form" novalidate>
+
+          <div class="input-group" id="ig-uid">
+            <label for="uid">
+              <span class="label-icon" aria-hidden="true">⬡</span>
+              Name / handle
+            </label>
+            <div class="input-shell">
+              <input
+                type="text"
+                id="uid"
+                name="username"
+                placeholder="e.g. bhanu.dev"
+                autocomplete="username"
+                spellcheck="false"
+                maxlength="64"
+                required
+              />
+              <div class="input-border-anim" aria-hidden="true"></div>
+            </div>
+            <div class="input-hint" aria-live="polite"></div>
+          </div>
+
+          <div class="input-group" id="ig-pwd">
+            <label for="pwd">
+              <span class="label-icon" aria-hidden="true">⬡</span>
+              Password
+            </label>
+            <div class="input-shell">
+              <input
+                type="password"
+                id="pwd"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                maxlength="128"
+                required
+              />
+              <button type="button" class="toggle-vis" id="toggle-pwd" aria-label="Toggle password visibility" tabindex="0">
+                <span class="eye-icon">◎</span>
+              </button>
+              <div class="input-border-anim" aria-hidden="true"></div>
+            </div>
+            <div class="input-hint" aria-live="polite"></div>
+          </div>
+
+          <button type="submit" class="btn-login" id="access-btn">
+            <div class="btn-bg" aria-hidden="true"></div>
+            <span class="btn-text">ACCESS</span>
+            <div class="btn-scanner" aria-hidden="true"></div>
+          </button>
+
+        </form>
+
+        <footer class="card-footer">
+          <a href="#contact" class="footer-link" aria-label="Jump to contact section">Skip</a>
+          <span class="footer-sep" aria-hidden="true">|</span>
+          <a href="#contact" class="footer-link" aria-label="Contact Bhanu">Contact</a>
+        </footer>
+
+        <div class="corner tl" aria-hidden="true"></div>
+        <div class="corner tr" aria-hidden="true"></div>
+        <div class="corner bl" aria-hidden="true"></div>
+        <div class="corner br" aria-hidden="true"></div>
+
+      </section>
+
+      <div id="scroll-indicator" aria-label="Scroll to explore" role="note">
+        <div class="scroll-line" aria-hidden="true"></div>
+        <span>SCROLL</span>
+      </div>
+
+    </div>
+  </main>
+
+  <section id="contact" aria-label="Contact">
+    <div class="contact-card">
+      <div class="contact-head">
+        <p class="section-kicker">Contact</p>
+        <h2 class="section-title">Let’s build something sharp.</h2>
+        <p class="section-subtitle">Tell me what you’re working on - lets discuss how we can bring your vision to life.</p>
+      </div>
+
+      <div class="contact-actions">
+        <a class="contact-btn primary" href="mailto:workwithbhanu07@gmail.com">Email me</a>
+        <a class="contact-btn" href="https://github.com/bhanu123-ctrl" aria-label="https://github.com/bhanu123-ctrl">GitHub</a>
+        <a class="contact-btn" href="https://linkedin.com/in/bhanu123-ctrl" aria-label="https://linkedin.com/in/bhanu123-ctrl">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer">
+    <div class="footer-inner">
+      <span>BHN_SYS &copy; 2077</span>
+      <span>UNAUTHORIZED ACCESS PROHIBITED</span>
+      <span>BUILD 3.0.1-OMEGA</span>
+    </div>
+  </footer>
+
+  <script src="javascript.js"></script>
+</body>
+</html>

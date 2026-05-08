@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BHANU — TERMINAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="cursor-arrow" aria-hidden="true">
+    <svg viewBox="0 0 64 64" focusable="false" aria-hidden="true">
+      <path d="M14 10 L14 54 L30 40 L54 28 Z"></path>
+    </svg>
+  </div>
+
+  <main id="hero-section" style="min-height:100vh;">
+    <div class="bg-layers" aria-hidden="true">
+      <div class="bg-radial"></div>
+      <div class="grid-floor"></div>
+      <div class="horizon-line"></div>
+      <div class="vignette"></div>
+    </div>
+
+    <div id="hero-content" style="max-width:760px;">
+      <div class="eyebrow" style="opacity:1; animation:none;">
+        <span class="eyebrow-bracket">[</span>
+        <span class="eyebrow-text">Session authenticated</span>
+        <span class="eyebrow-bracket">]</span>
+      </div>
+
+      <h1 id="bhanu-title" aria-label="WELCOME" style="max-width:100vw; flex-wrap:wrap; justify-content:center; font-size:clamp(3rem, 12vw, 6.5rem); letter-spacing:0.08em;">WELCOME</h1>
+
+      <p class="section-subtitle" style="text-align:center; margin-top:0.75rem;">
+        Access granted. You can replace this page with your real portfolio/home page.
+      </p>
+
+      <div class="contact-actions" style="justify-content:center;">
+        <a class="contact-btn primary" href="index.html">Back</a>
+        <a class="contact-btn" href="#noop" onclick="return false;">Continue</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="javascript.js"></script>
+</body>
+</html>
