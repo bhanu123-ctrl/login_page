@@ -29,6 +29,12 @@ function setCursorPos(x, y) {
   cursorArrow.style.top = y + 'px';
 }
 
+const CREDENTIALS = {
+  'bhanu':   'cyber2099',
+  'admin':   'neural#99',
+  'guest':   'access007',
+};
+
 document.addEventListener('pointermove', e => {
   if (e.pointerType && e.pointerType !== 'mouse') return;
   setCursorPos(e.clientX, e.clientY);
@@ -174,7 +180,6 @@ function setLoadProgress(value) {
   if (loadNode) loadNode.textContent = v >= 100 ? 'NODE: SECURE' : 'NODE: —';
 }
 
-// Before credentials are entered, keep the bar at 0%.
 setLoadProgress(0);
 
 let ticking = false, scrollY = 0;
@@ -320,7 +325,6 @@ if (loginForm) {
         }, 900);
       }
 
-      // After successful access, move to the next page.
       setTimeout(() => {
         window.location.href = 'terminal.html';
       }, 900);
